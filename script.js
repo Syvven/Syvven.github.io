@@ -245,6 +245,9 @@ window.addEventListener('click', function(e) {
 
 window.addEventListener('touchstart', function(e) {
     e.preventDefault();
+}, {passive: false});
+
+window.addEventListener('touchend', function(e) {
     const pixelColor = c_ctx.getImageData(e.x, e.y, 1, 1);
     const pc = pixelColor.data;
     ravens.forEach(obj => {
@@ -257,7 +260,7 @@ window.addEventListener('touchstart', function(e) {
                 splats.push(new Splat(obj.x-30, obj.y+40, obj.width));
         }
     });
-}, {passive: false});
+});
 
 slider.addEventListener('change', function(e) {
     gameSpeed = e.target.value;
