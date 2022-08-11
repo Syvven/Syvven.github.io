@@ -244,6 +244,7 @@ window.addEventListener('click', function(e) {
 });
 
 window.addEventListener('touchstart', function(e) {
+    e.preventDefault();
     const pixelColor = c_ctx.getImageData(e.x, e.y, 1, 1);
     const pc = pixelColor.data;
     ravens.forEach(obj => {
