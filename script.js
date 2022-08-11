@@ -36,8 +36,8 @@ class Raven {
         this.spriteWidth = 687;
         this.spriteHeight = 786;
         this.sizeModifier = Math.random() * 0.6 + 0.6;
-        this.width = this.spriteWidth * 0.3 * this.sizeModifier;
-        this.height = this.spriteHeight * 0.3 * this.sizeModifier;
+        this.width = (this.spriteWidth * 0.3 * this.sizeModifier) / (canvas.width * 0.00075 * 0.7);
+        this.height = (this.spriteHeight * 0.3 * this.sizeModifier) / (canvas.height * 0.001 * 0.7);
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
         this.directionXbase = Math.random() * 5 + 3;
