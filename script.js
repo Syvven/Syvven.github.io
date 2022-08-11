@@ -172,6 +172,17 @@ class Splat {
         }
     }
 
+    mobile_update(dt) {
+        if (this.frame == 0 && Math.random() > 0.8) this.sound.play();
+        this.timeSinceLastFrame += dt;
+        if (this.timeSinceLastFrame > this.timeUntilFade) this.fade = true;
+        if (this.timeSinceLastFrame > this.frameInterval && this.fade) {
+            this.timeSinceLastFrame = 0;
+            this.frame++;
+            if (this.frame > 5) this.markedForDeath = true;
+        }
+    }
+
     draw() {
         ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, 
                       this.spriteHeight, this.x, this.y - this.size/4, this.size, this.size);
@@ -306,4 +317,41 @@ function animate(timestamp) {
     if (!gameOver) requestAnimationFrame(animate);
     else drawGameOver();
 }
-animate(0);
+
+function mobile_animate(timestamp) {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    c_ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    let dt = timestamp - lastTime;
+    lastTime = timestamp;
+    timeToNextRaven += dt;
+
+    if (timeToNextRaven >= ravenInterval) {
+        timeToNextRaven = 0;
+        ravens.push(new Raven());
+        ravens.sort((obj1, obj2) => {
+            return obj1.width - obj2.width;
+        });
+    }
+
+    drawScore();
+    drawSpeed();
+
+    splats.forEach(obj => obj.mobile_update(dt));
+    [/*...particles,*/...ravens, /*, ...explosions*/].forEach(obj => obj.update(dt, true));
+    [/*...particles,*/ ...splats, ...ravens, /*, ...explosions*/].forEach(obj => obj.draw());
+    ravens = ravens.filter(rav => !rav.markedForDeath);
+    // explosions = explosions.filter(exp => !exp.markedForDeath);
+    splats = splats.filter(exp => !exp.markedForDeath);
+    // particles = particles.filter(part => !part.markedForDeath);
+    if (!gameOver) requestAnimationFrame(animate);
+    else drawGameOver();
+}
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+    mobile_animate(0);
+} else {
+    animate(0);
+}
+
