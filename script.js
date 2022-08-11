@@ -251,8 +251,8 @@ window.addEventListener('touchend', function(e) {
     const rect = canvas.getBoundingClientRect();
     console.log(15);
     console.log(e);
-    const cssX = e.touches[0].clientX - rect.left;
-    const cssY = e.touches[0].clientY - rect.top;
+    const cssX = e.changedTouches[0].screenX - rect.left;
+    const cssY = e.changedTouches[0].screenY - rect.top;
     const pixelX = cssX * canvas.width  / rect.width;
     const pixelY = cssY * canvas.height / rect.height;
     const pixelColor = c_ctx.getImageData(pixelX, pixelY, 1, 1);
