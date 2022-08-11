@@ -8,10 +8,9 @@ body {
 
 #container {
     position: absolute;
-    width: 200px;
-    top: 6%;
-    left: 50%;
-    font-size: 25px;
+    width: 8vw;
+    top: 6vh;
+    left: 45vw;
 }
 
 /* #slider::-webkit-slider-thumb {
@@ -23,6 +22,10 @@ body {
     background: url('images/contrasticon.png');
     cursor: pointer;
 } */
+
+#slider {
+    width: 10vw
+}
 
 canvas {
     position: absolute;

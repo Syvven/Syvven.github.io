@@ -13,10 +13,11 @@ const slider = document.getElementById('slider');
 const slide_container = document.getElementById('container');
 const slide_rect = slide_container.getBoundingClientRect();
 slider.value = gameSpeed;
+// slide_container.style.fontSize = ;
 
 let score = 0;
 let gameOver = false;
-ctx.font = '50px Impact';
+ctx.font = '2vw Impact';
 
 let timeToNextRaven = 0;
 let baseRavenInterval = 500;
@@ -38,8 +39,8 @@ class Raven {
         this.spriteWidth = 687;
         this.spriteHeight = 786;
         this.sizeModifier = Math.random() * 0.6 + 0.6;
-        this.width = (this.spriteWidth * 0.3 * this.sizeModifier) * (canvas.width * 0.00075 * 0.7);
-        this.height = (this.spriteHeight * 0.3 * this.sizeModifier) * (canvas.height * 0.001 * 0.7);
+        this.width = this.spriteWidth * 0.3 * this.sizeModifier * canvas.width * 0.0006 * 0.6;
+        this.height = this.spriteHeight * 0.3 * this.sizeModifier * canvas.height * 0.001 * 0.6;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
         this.directionXbase = Math.random() * 5 + 3;
@@ -206,27 +207,27 @@ class Splat {
 
 function drawSpeed() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - slide_rect.width/2, slide_rect.top/1.5)
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * canvas.width/2560), slide_rect.top/1.5)
     ctx.fillStyle = 'green';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - slide_rect.width/2 + 5, slide_rect.top/1.5 + 5);
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * canvas.width/2560) + (5 * canvas.width/2560), slide_rect.top/1.5 + (5 * canvas.height/1440));
 }
 
 function drawScore() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Score: ' + score, 50, 75)
+    ctx.fillText('Score: ' + score, 50 * (canvas.width/2560), 75 * (canvas.height/1440))
     ctx.fillStyle = 'green';
-    ctx.fillText('Score: ' + score, 55, 80);
+    ctx.fillText('Score: ' + score, 55 * (canvas.width/2560), 80 * (canvas.height/1440));
 }
 
 function drawGameOver() {
     ctx.textAlign = 'center';
     ctx.fillStyle = 'black';
     ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);
-    ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + 55);
+    ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + (55 * canvas.height/1440));
 
     ctx.fillStyle = 'green';
-    ctx.fillText('GAME OVER!', canvas.width/2 + 5, canvas.height/2 + 5);
-    ctx.fillText('Your Score Is ' + score, canvas.width/2 + 5, canvas.height/2 + 5 + 55);
+    ctx.fillText('GAME OVER!', canvas.width/2 + (5 * canvas.width/2560), canvas.height/2 + (5 * canvas.width/2560));
+    ctx.fillText('Your Score Is ' + score, canvas.width/2 + (5 * canvas.width/2560), canvas.height/2 + (60 * canvas.height/1440));
 }
 
 window.addEventListener('click', function(e) {
