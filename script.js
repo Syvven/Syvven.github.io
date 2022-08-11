@@ -173,7 +173,10 @@ class Splat {
     }
 
     mobile_update(dt) {
-        if (this.frame == 0 && Math.random() > 0.8) this.sound.play();
+        let random = Math.random();
+        if (this.frame == 0 && random > 0.999) {   
+            this.sound.play();
+        }
         this.timeSinceLastFrame += dt;
         if (this.timeSinceLastFrame > this.timeUntilFade) this.fade = true;
         if (this.timeSinceLastFrame > this.frameInterval && this.fade) {
@@ -314,6 +317,7 @@ function animate(timestamp) {
     // explosions = explosions.filter(exp => !exp.markedForDeath);
     splats = splats.filter(exp => !exp.markedForDeath);
     // particles = particles.filter(part => !part.markedForDeath);
+    
     if (!gameOver) requestAnimationFrame(animate);
     else drawGameOver();
 }
@@ -338,13 +342,13 @@ function mobile_animate(timestamp) {
     drawSpeed();
 
     splats.forEach(obj => obj.mobile_update(dt));
-    [/*...particles,*/...ravens, /*, ...explosions*/].forEach(obj => obj.update(dt, true));
+    [/*...particles,*/...ravens, /*, ...explosions*/].forEach(obj => obj.update(dt));
     [/*...particles,*/ ...splats, ...ravens, /*, ...explosions*/].forEach(obj => obj.draw());
     ravens = ravens.filter(rav => !rav.markedForDeath);
     // explosions = explosions.filter(exp => !exp.markedForDeath);
     splats = splats.filter(exp => !exp.markedForDeath);
     // particles = particles.filter(part => !part.markedForDeath);
-    if (!gameOver) requestAnimationFrame(animate);
+    if (!gameOver) requestAnimationFrame(mobile_animate);
     else drawGameOver();
 }
 
@@ -354,9 +358,10 @@ window.mobileCheck = function() {
     return check;
 };
 
-if (window.mobileCheck) {
-    mobile_animate(0);
-} else {
+console.log(window.mobileCheck());
+if (!window.mobileCheck()) {
     animate(0);
+} else {
+    mobile_animate(0);
 }
 
