@@ -250,7 +250,7 @@ window.addEventListener('touchstart', function(e) {
 window.addEventListener('touchend', function(e) {
     const rect = canvas.getBoundingClientRect();
     console.log(15);
-    console.log(e.touches);
+    console.log(e);
     const cssX = e.touches[0].clientX - rect.left;
     const cssY = e.touches[0].clientY - rect.top;
     const pixelX = cssX * canvas.width  / rect.width;
