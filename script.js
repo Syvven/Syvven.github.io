@@ -243,6 +243,21 @@ window.addEventListener('click', function(e) {
     });
 });
 
+window.addEventListener('touchstart', function(e) {
+    const pixelColor = c_ctx.getImageData(e.x, e.y, 1, 1);
+    const pc = pixelColor.data;
+    ravens.forEach(obj => {
+        if (obj.randomColors[0] == pc[0] &&
+            obj.randomColors[1] == pc[1] &&
+            obj.randomColors[2] == pc[2]) {
+                obj.markedForDeath = true;
+                score++;
+                // explosions.push(new Explosion(obj.x-20, obj.y+20, obj.width));
+                splats.push(new Splat(obj.x-30, obj.y+40, obj.width));
+        }
+    });
+});
+
 slider.addEventListener('change', function(e) {
     gameSpeed = e.target.value;
     ravens.forEach(rav => rav.updateSpeed());
