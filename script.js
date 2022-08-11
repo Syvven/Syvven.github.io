@@ -11,6 +11,7 @@ c_canvas.height = window.innerHeight;
 let gameSpeed = 1.0;
 const slider = document.getElementById('slider');
 const slide_container = document.getElementById('container');
+const slide_rect = slide_container.getClientBoundingRect();
 slider.value = gameSpeed;
 
 let score = 0;
@@ -203,9 +204,9 @@ class Splat {
 
 function drawSpeed() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Game Speed: ' + gameSpeed, canvas.width/2 - 90, 65)
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left, slide_rect.top)
     ctx.fillStyle = 'green';
-    ctx.fillText('Game Speed: ' + gameSpeed, canvas.width/2 - 90 + 5, 70);
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left + 5, slide_rect.top + 5);
 }
 
 function drawScore() {
