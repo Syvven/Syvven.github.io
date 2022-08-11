@@ -11,7 +11,7 @@ c_canvas.height = window.innerHeight;
 let gameSpeed = 1.0;
 const slider = document.getElementById('slider');
 const slide_container = document.getElementById('container');
-const slide_rect = slide_container.getClientBoundingRect();
+const slide_rect = slide_container.getBoundingClientRect();
 slider.value = gameSpeed;
 
 let score = 0;
