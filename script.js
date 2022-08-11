@@ -243,11 +243,11 @@ window.addEventListener('click', function(e) {
     });
 });
 
-canvas.addEventListener('touchstart', function(e) {
+window.addEventListener('touchstart', function(e) {
     e.preventDefault();
 }, {passive: false});
 
-canvas.addEventListener('touchend', function(e) {
+window.addEventListener('touchend', function(e) {
     const rect = canvas.getBoundingClientRect();
     console.log(15);
     console.log(e.touches);
