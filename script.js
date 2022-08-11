@@ -204,9 +204,9 @@ class Splat {
 
 function drawSpeed() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left, slide_rect.top)
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - slide_rect.width/2, slide_rect.top/1.5)
     ctx.fillStyle = 'green';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left + 5, slide_rect.top + 5);
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - slide_rect.width/2 + 5, slide_rect.top/1.5 + 5);
 }
 
 function drawScore() {
