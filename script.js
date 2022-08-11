@@ -247,7 +247,7 @@ canvas.addEventListener('touchstart', function(e) {
     e.preventDefault();
 }, {passive: false});
 
-wcanvas.addEventListener('touchend', function(e) {
+canvas.addEventListener('touchend', function(e) {
     const pixelColor = c_ctx.getImageData(e.x, e.y, 1, 1);
     const pc = pixelColor.data;
     ravens.forEach(obj => {
