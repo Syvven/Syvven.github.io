@@ -24,6 +24,9 @@ let baseRavenInterval = 500;
 let ravenInterval = 500;
 let lastTime = 0;
 
+let widthRatio = canvas.width/2560;
+let heightRatio = canvas.height/1440;
+
 const num_images = 23;
 let sounds = [];
 for (let i = 1; i <= num_images; i++) {
@@ -43,9 +46,9 @@ class Raven {
         this.height = this.spriteHeight * 0.3 * this.sizeModifier * canvas.height * 0.001 * 0.6;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
-        this.directionXbase = Math.random() * 5 + 3;
+        this.directionXbase = (Math.random() * 5 + 3) * widthRatio;
         this.directionX = this.directionXbase * gameSpeed;
-        this.directionYbase = Math.random() * 5 - 2.5;
+        this.directionYbase = (Math.random() * 5 - 2.5) * heightRatio;
         this.directionY = this.directionYbase;
         this.markedForDeath = false;
         this.image = new Image();
@@ -207,27 +210,27 @@ class Splat {
 
 function drawSpeed() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * canvas.width/2560), slide_rect.top/1.5)
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio), slide_rect.top/1.5)
     ctx.fillStyle = 'green';
-    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * canvas.width/2560) + (5 * canvas.width/2560), slide_rect.top/1.5 + (5 * canvas.height/1440));
+    ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio) + (5 * widthRatio), slide_rect.top/1.5 + (5 * heightRatio));
 }
 
 function drawScore() {
     ctx.fillStyle = 'black';
-    ctx.fillText('Score: ' + score, 50 * (canvas.width/2560), 75 * (canvas.height/1440))
+    ctx.fillText('Score: ' + score, 50 * (widthRatio), 75 * (heightRatio))
     ctx.fillStyle = 'green';
-    ctx.fillText('Score: ' + score, 55 * (canvas.width/2560), 80 * (canvas.height/1440));
+    ctx.fillText('Score: ' + score, 55 * (widthRatio), 80 * (heightRatio));
 }
 
 function drawGameOver() {
     ctx.textAlign = 'center';
     ctx.fillStyle = 'black';
     ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);
-    ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + (55 * canvas.height/1440));
+    ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + (55 * heightRatio));
 
     ctx.fillStyle = 'green';
-    ctx.fillText('GAME OVER!', canvas.width/2 + (5 * canvas.width/2560), canvas.height/2 + (5 * canvas.width/2560));
-    ctx.fillText('Your Score Is ' + score, canvas.width/2 + (5 * canvas.width/2560), canvas.height/2 + (60 * canvas.height/1440));
+    ctx.fillText('GAME OVER!', canvas.width/2 + (5 * widthRatio), canvas.height/2 + (5 * heightRatio));
+    ctx.fillText('Your Score Is ' + score, canvas.width/2 + (5 * widthRatio), canvas.height/2 + (60 * heightRatio));
 }
 
 window.addEventListener('click', function(e) {
