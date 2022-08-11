@@ -256,7 +256,7 @@ window.addEventListener('touchstart', function(e) {
                 splats.push(new Splat(obj.x-30, obj.y+40, obj.width));
         }
     });
-});
+}, {passive: false});
 
 slider.addEventListener('change', function(e) {
     gameSpeed = e.target.value;
