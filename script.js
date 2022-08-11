@@ -10,6 +10,7 @@ c_canvas.height = window.innerHeight;
 
 let gameSpeed = 1.0;
 const slider = document.getElementById('slider');
+const slide_container = document.getElementById('container');
 slider.value = gameSpeed;
 
 let score = 0;
@@ -21,15 +22,12 @@ let baseRavenInterval = 500;
 let ravenInterval = 500;
 let lastTime = 0;
 
-console.log(lastTime);
-
 const num_images = 23;
 let sounds = [];
 for (let i = 1; i <= num_images; i++) {
     let sound = 'sounds/' + i + '.mp3';
     sounds.push(sound);
 }
-console.log(sounds);
 
 let ravens = [];
 class Raven {
