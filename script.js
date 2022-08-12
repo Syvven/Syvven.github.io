@@ -34,8 +34,6 @@ for (let i = 1; i <= num_images; i++) {
     sounds.push(sound);
 }
 
-console.log(canvas.width);
-
 let ravens = [];
 class Raven {
     constructor() {
@@ -223,6 +221,22 @@ class Splat {
 //     }
 // }
 
+function reset() {
+    splats.forEach(obj => {
+        obj.sound.pause();
+    });
+    ravens = [];
+    splats = [];
+    timeToNextRaven = 0;
+    baseRavenInterval = 500;
+    ravenInterval = 500;
+    lastTime = 0;
+    score = 0;
+    gameOver = false;
+    gameSpeed = 1.0;
+    slider.value = gameSpeed;
+}
+
 function drawSpeed() {
     ctx.fillStyle = 'black';
     ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio), slide_rect.top/1.5)
@@ -270,11 +284,8 @@ window.addEventListener('touchstart', function(e) {
     const cssY = (e.changedTouches[0].screenY || e.touches[0].screenY);
     const pixelX = Math.floor(cssX * canvas.width  / rect.width);
     const pixelY = Math.floor(cssY * canvas.height / rect.height);
-    console.log(pixelX, pixelY);
     const pixelColor = c_ctx.getImageData(pixelX, pixelY, 1, 1);
-    console.log(pixelColor);
     const pc = pixelColor.data;
-    console.log(pixelColor.data);
     ravens.forEach(obj => {
         if (obj.randomColors[0] == pc[0] &&
             obj.randomColors[1] == pc[1] &&
@@ -314,6 +325,13 @@ slider.addEventListener('change', function(e) {
     gameSpeed = e.target.value;
     ravens.forEach(rav => rav.updateSpeed());
     ravenInterval = baseRavenInterval * 1/gameSpeed;
+});
+
+window.addEventListener('keypress', function(e) {
+    let name = e.key;
+    if (name == 'r') {
+        reset();
+    }
 });
 
 function animate(timestamp) {
@@ -382,7 +400,6 @@ window.mobileCheck = function() {
     return check;
 };
 
-console.log(window.mobileCheck());
 if (!window.mobileCheck()) {
     animate(0);
 } else {
