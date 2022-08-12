@@ -60,11 +60,12 @@ class Raven {
         this.randomColors = [
             Math.floor(Math.random() * 255), 
             Math.floor(Math.random() * 255), 
-            Math.floor(Math.random() * 255)
+            Math.floor(Math.random() * 255),
         ];
         this.color = 'rgb(' + this.randomColors[0] + ',' +
                               this.randomColors[1] + ',' +
                               this.randomColors[2] + ')';
+        console.log(this.color);
         this.hasTrail = Math.random() > 0.5;
     }
 
@@ -257,23 +258,23 @@ window.addEventListener('click', function(e) {
                 obj.markedForDeath = true;
                 score++;
                 // explosions.push(new Explosion(obj.x-20, obj.y+20, obj.width));
-                splats.push(new Splat(obj.x-30, obj.y+40, obj.width));
+                splats.push(new Splat(obj.x-(30*widthRatio), obj.y+(40*heightRatio), obj.width));
         }
     });
 });
 
 window.addEventListener('touchstart', function(e) {
     e.preventDefault();
-}, {passive: false});
-
-window.addEventListener('touchend', function(e) {
     const rect = canvas.getBoundingClientRect();
-    const cssX = (e.changedTouches[0].screenX || e.touches[0].clientX) - rect.left;
-    const cssY = (e.changedTouches[0].screenY || e.touches[0].clientY) - rect.top;
-    const pixelX = cssX * canvas.width  / rect.width;
-    const pixelY = cssY * canvas.height / rect.height;
+    const cssX = (e.changedTouches[0].screenX || e.touches[0].screenX);
+    const cssY = (e.changedTouches[0].screenY || e.touches[0].screenY);
+    const pixelX = Math.floor(cssX * canvas.width  / rect.width);
+    const pixelY = Math.floor(cssY * canvas.height / rect.height);
+    console.log(pixelX, pixelY);
     const pixelColor = c_ctx.getImageData(pixelX, pixelY, 1, 1);
+    console.log(pixelColor);
     const pc = pixelColor.data;
+    console.log(pixelColor.data);
     ravens.forEach(obj => {
         if (obj.randomColors[0] == pc[0] &&
             obj.randomColors[1] == pc[1] &&
@@ -281,10 +282,33 @@ window.addEventListener('touchend', function(e) {
                 obj.markedForDeath = true;
                 score++;
                 // explosions.push(new Explosion(obj.x-20, obj.y+20, obj.width));
-                splats.push(new Splat(obj.x-30, obj.y+40, obj.width));
+                splats.push(new Splat(obj.x-(30*widthRatio), obj.y+(40*heightRatio), obj.width));
         }
     });
 });
+
+// window.addEventListener('touchend', function(e) {
+//     const rect = canvas.getBoundingClientRect();
+//     const cssX = (e.changedTouches[0].screenX || e.touches[0].screenX);
+//     const cssY = (e.changedTouches[0].screenY || e.touches[0].screenY);
+//     const pixelX = Math.floor(cssX * canvas.width  / rect.width);
+//     const pixelY = Math.floor(cssY * canvas.height / rect.height);
+//     console.log(pixelX, pixelY);
+//     const pixelColor = c_ctx.getImageData(pixelX, pixelY, 1, 1);
+//     console.log(pixelColor);
+//     const pc = pixelColor.data;
+//     console.log(pixelColor.data);
+//     ravens.forEach(obj => {
+//         if (obj.randomColors[0] == pc[0] &&
+//             obj.randomColors[1] == pc[1] &&
+//             obj.randomColors[2] == pc[2]) {
+//                 obj.markedForDeath = true;
+//                 score++;
+//                 // explosions.push(new Explosion(obj.x-20, obj.y+20, obj.width));
+//                 splats.push(new Splat(obj.x-(30*widthRatio), obj.y+(40*heightRatio), obj.width));
+//         }
+//     });
+// });
 
 slider.addEventListener('change', function(e) {
     gameSpeed = e.target.value;
