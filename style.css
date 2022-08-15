@@ -13,16 +13,6 @@ body {
     left: 45vw;
 }
 
-/* #slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 23px;
-    height: 24px;
-    border: 0;
-    background: url('images/contrasticon.png');
-    cursor: pointer;
-} */
-
 #slider {
     width: 10vw
 }
@@ -64,6 +54,29 @@ canvas {
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+}
+
+#speed-text {
+    position: absolute;
+    top: -2.5vh;
+    left: 46vw;
+    text-shadow: #000000 -0.2vw -0.2vh 0;
+    color: green;
+    font-family: 'Impact';
+    font-size: 2vw;
+}
+
+#score-text {
+    position: absolute;
+    top: -2vh;
+    left: 2vw;
+    text-shadow: #000000 -0.2vw -0.2vh 0;
+    color: green;
+    font-family: 'Impact';
+    font-size: 2vw;
+}
+
+#game-over {
     
 }
 

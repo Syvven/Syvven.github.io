@@ -2,10 +2,8 @@ window.addEventListener('load', e => {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
-    // THESE ARE THE PROBLEM RN
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight; 
-    ///////////////////////////
 
     const c_canvas = document.getElementById('collision-canvas');
     const c_ctx = c_canvas.getContext('2d');
@@ -18,6 +16,10 @@ window.addEventListener('load', e => {
     const slide_rect = slide_container.getBoundingClientRect();
     slider.value = gameSpeed;
 
+    const t_score = document.getElementById('score-text');
+    const t_speed = document.getElementById('speed-text');
+    const t_gameover = document.getElementById('game-over');
+
     // console.log(gameSpeed);
     // const button = document.getElementById('button');
     // button.onclick = function(){ 
@@ -27,6 +29,10 @@ window.addEventListener('load', e => {
     let score = 0;
     let gameOver = false;
     ctx.font = '2vw Impact';
+
+    t_score.textContent = "Score: " + score;
+    t_speed.textContent = "Speed: " + gameSpeed;
+    
 
     let timeToNextRaven = 0;
     let baseRavenInterval = 500;
@@ -229,32 +235,32 @@ window.addEventListener('load', e => {
     //     }
     // }
 
-    function drawSpeed() {
-        ctx.fillStyle = 'black';
-        ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio), slide_rect.top/1.5)
-        ctx.fillStyle = 'green';
-        ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio) + (5 * widthRatio), slide_rect.top/1.5 + (5 * heightRatio));
-        return [slide_rect.left - (30 * widthRatio), slide_rect.top/1.5]
-    }
+    // function drawSpeed() {
+    //     ctx.fillStyle = 'black';
+    //     ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio), slide_rect.top/1.5)
+    //     ctx.fillStyle = 'green';
+    //     ctx.fillText('Game Speed: ' + gameSpeed, slide_rect.left - (30 * widthRatio) + (5 * widthRatio), slide_rect.top/1.5 + (5 * heightRatio));
+    // }
 
-    function drawScore() {
-        ctx.fillStyle = 'black';
-        ctx.fillText('Score: ' + score, 50 * (widthRatio), 75 * (heightRatio))
-        ctx.fillStyle = 'green';
-        ctx.fillText('Score: ' + score, 55 * (widthRatio), 80 * (heightRatio));
+    // function drawScore() {
+    //     ctx.fillStyle = 'black';
+    //     ctx.fillText('Score: ' + score, 50 * (widthRatio), 75 * (heightRatio))
+    //     ctx.fillStyle = 'green';
+    //     ctx.fillText('Score: ' + score, 55 * (widthRatio), 80 * (heightRatio));
 
-        return [50 * (widthRatio), 75 * (heightRatio)]
-    }
+    //     return [50 * (widthRatio), 75 * (heightRatio)]
+    // }
 
     function drawGameOver() {
-        ctx.textAlign = 'center';
-        ctx.fillStyle = 'black';
-        ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);
-        ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + (55 * heightRatio));
+        t_gameover.textContent = 'Game Over!<br>Your Score Was ' + score;
+        // ctx.textAlign = 'center';
+        // ctx.fillStyle = 'black';
+        // ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);
+        // ctx.fillText('Your Score Is ' + score, canvas.width/2, canvas.height/2 + (55 * heightRatio));
 
-        ctx.fillStyle = 'green';
-        ctx.fillText('GAME OVER!', canvas.width/2 + (5 * widthRatio), canvas.height/2 + (5 * heightRatio));
-        ctx.fillText('Your Score Is ' + score, canvas.width/2 + (5 * widthRatio), canvas.height/2 + (60 * heightRatio));
+        // ctx.fillStyle = 'green';
+        // ctx.fillText('GAME OVER!', canvas.width/2 + (5 * widthRatio), canvas.height/2 + (5 * heightRatio));
+        // ctx.fillText('Your Score Is ' + score, canvas.width/2 + (5 * widthRatio), canvas.height/2 + (60 * heightRatio));
     }
 
     window.addEventListener('click', function(e) {
@@ -338,8 +344,8 @@ window.addEventListener('load', e => {
             });
         }
 
-        let one = drawScore();
-        let two = drawSpeed();
+        t_score.textContent = "Score: " + score;
+        t_speed.textContent = "Speed: " + gameSpeed;
 
         [/*...particles,*/ ...splats, ...ravens, /*, ...explosions*/].forEach(obj => obj.update(dt));
         [/*...particles,*/ ...splats, ...ravens, /*, ...explosions*/].forEach(obj => obj.draw());

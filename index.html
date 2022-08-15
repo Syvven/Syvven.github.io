@@ -7,16 +7,26 @@
     <link rel="stylesheet" href="style.css"/>
     <head>
         <body>
+            <p id="score-text">
+                Score: 
+            </p>
+            <p id="speed-text">
+                Speed: 
+            </p>
             <canvas id="collision-canvas"></canvas>
             <canvas id="canvas"></canvas>
             <div id="container">
                 <span id='showGameSpeed'></span>
                 <input type="range" min="0.0" max="2.0" value="1.0" step="0.1" class="slider" id="slider">
             </div>
+            
             <div id="button">
                 <button id="btn" onclick="window.location.reload()">Reset</button>
             </div>
             <script src="script.js"></script>
+            <p id="game-over">
+    
+            </p>
 
         </body>
     </head>
