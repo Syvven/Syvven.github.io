@@ -44,6 +44,28 @@ canvas {
     opacity: 0%;
 }
 
+#button {
+    position: absolute;
+    top: 1vw;
+    left: 96vw;
+    width: 3vw;
+    height: 3vw;
+}
+
+#btn {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #454B1B;
+}
+
+#btn:hover {
+    
+}
+
 .sortable-handler {
     touch-action: none;
-  }
+}
