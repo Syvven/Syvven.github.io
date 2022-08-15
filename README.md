@@ -8,6 +8,8 @@ The game works best on desktop/laptop but does work on mobile. I had difficultie
 
 ## How To Play
 
+To start the game, go to [this website](https://syvven.github.io).
+
 The game is very simple: 
 - Flies fly across the screen moving horizontally and vertically
 - Click on the fly to splat it against the wall
