@@ -10,11 +10,11 @@ body {
     position: absolute;
     width: 8vw;
     top: 6vh;
-    left: 45vw;
+    left: 42.5vw;
 }
 
 #slider {
-    width: 10vw;
+    width: 15vw;
     
 }
 
@@ -78,7 +78,23 @@ canvas {
 }
 
 #game-over {
+    position: absolute;
+    top: 45vh;
+    left: 46vw;
+    text-shadow: #000000 -0.2vw -0.2vh 0;
+    color: green;
+    font-family: 'Impact';
+    font-size: 2vw;
+}
 
+#game-over-score {
+    position: absolute;
+    top: 49vh;
+    left: 43.5vw;
+    text-shadow: #000000 -0.2vw -0.2vh 0;
+    color: green;
+    font-family: 'Impact';
+    font-size: 2vw;
 }
 
 .sortable-handler {

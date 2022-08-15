@@ -23,6 +23,7 @@ window.addEventListener('load', e => {
     const t_score = document.getElementById('score-text');
     const t_speed = document.getElementById('speed-text');
     const t_gameover = document.getElementById('game-over');
+    const t_gameover_score = document.getElementById('game-over-score');
 
     // console.log(gameSpeed);
     // const button = document.getElementById('button');
@@ -256,7 +257,8 @@ window.addEventListener('load', e => {
     // }
 
     function drawGameOver() {
-        t_gameover.textContent = 'Game Over!<br>Your Score Was ' + score; 
+        t_gameover.textContent = 'Game Over!';
+        t_gameover_score.textContent = "Your Score Was " + score;
         // ctx.textAlign = 'center';
         // ctx.fillStyle = 'black';
         // ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);
