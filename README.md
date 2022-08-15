@@ -31,6 +31,7 @@ The game is very simple:
 - Tutorial
 - More enemies / special enemies
 - More sounds
+- Better support for mobile, likely in form of app
 
 ## Credits
 
