@@ -6,6 +6,8 @@ Point and Augh is a silly little project that I made to learn javascript and spr
 
 The game works best on desktop/laptop but does work on mobile. I had difficulties getting the display right on mobile and sometimes it just straight up doesn't work, but I didn't want to get hung up on the platform it wasn't meant for--maybe I'll make an app version sometime.
 
+It is by no means perfect, nor is it even close, but its a first attempt and I will likely refactor it in the future.
+
 ## DISCLAIMER
 
 This game contains very loud sound clips. I very much recommend turning your volume down if you don't want to go deaf, however, it is much funnier to have the volume loud :)
