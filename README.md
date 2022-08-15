@@ -21,4 +21,4 @@ The game is very simple:
 
 - Lauren Oliver for the sprites
 - My Sister for the inspiration
-- \href{https://www.youtube.com/watch?v=GFO_txvwK_c&t=13829s} for the information on how to animate sprites
+- [This youtube video](https://www.youtube.com/watch?v=GFO_txvwK_c&t=13829s) for the information on how to animate sprites
