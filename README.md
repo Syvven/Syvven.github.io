@@ -25,6 +25,12 @@ The game is very simple:
 - The "Reset" button in the top right can be clicked to reset the game at any point
 - A speed slider at the top controls the speed of the flies from 0x to 3x
 
+## Future Additions
+
+- More robust menu / less obstructive text
+- Tutorial
+- More enemies / special enemies
+
 ## Credits
 
 - Lauren Oliver for the sprites
