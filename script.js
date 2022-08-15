@@ -4,16 +4,20 @@ window.addEventListener('load', e => {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight; 
+    canvas.style.width = canvas.width;
+    canvas.style.height = canvas.height;
 
     const c_canvas = document.getElementById('collision-canvas');
     const c_ctx = c_canvas.getContext('2d');
     c_canvas.width = window.innerWidth;
     c_canvas.height = window.innerHeight;
+    c_canvas.style.width = c_canvas.width;
+    c_canvas.style.height = c_canvas.height;
 
     let gameSpeed = 1.0;
     const slider = document.getElementById('slider');
-    const slide_container = document.getElementById('container');
-    const slide_rect = slide_container.getBoundingClientRect();
+    // const slide_container = document.getElementById('container');
+    // const slide_rect = slide_container.getBoundingClientRect();
     slider.value = gameSpeed;
 
     const t_score = document.getElementById('score-text');
@@ -252,7 +256,7 @@ window.addEventListener('load', e => {
     // }
 
     function drawGameOver() {
-        t_gameover.textContent = 'Game Over!<br>Your Score Was ' + score;
+        t_gameover.textContent = 'Game Over!<br>Your Score Was ' + score; 
         // ctx.textAlign = 'center';
         // ctx.fillStyle = 'black';
         // ctx.fillText('GAME OVER!', canvas.width/2, canvas.height/2);

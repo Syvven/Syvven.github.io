@@ -14,7 +14,8 @@ body {
 }
 
 #slider {
-    width: 10vw
+    width: 10vw;
+    
 }
 
 canvas {
@@ -77,7 +78,7 @@ canvas {
 }
 
 #game-over {
-    
+
 }
 
 .sortable-handler {
