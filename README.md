@@ -14,5 +14,11 @@ The game is very simple:
 - Each fly splatted plays a meme sound clip to spice up the game a bit
   - WARNING: Some of the sound clips can be very loud
 - If a fly reaches the leftmost edge of the screen, the game ends and displays your score
-- The "Reset" button in the top right can be clicked to reset the game
+- The "Reset" button in the top right can be clicked to reset the game at any point
 - A speed slider at the top controls the speed of the flies from 0x to 3x
+
+## Credits
+
+- Lauren Oliver for the sprites
+- My Sister for the inspiration
+- \href{https://www.youtube.com/watch?v=GFO_txvwK_c&t=13829s} for the information on how to animate sprites
