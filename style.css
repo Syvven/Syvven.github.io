@@ -79,22 +79,22 @@ canvas {
 
 #game-over {
     position: absolute;
-    top: 45vh;
-    left: 46vw;
+    top: 27vh;
+    left: 37vw;
     text-shadow: #000000 -0.2vw -0.2vh 0;
     color: green;
     font-family: 'Impact';
-    font-size: 2vw;
+    font-size: 5vw;
 }
 
 #game-over-score {
     position: absolute;
-    top: 49vh;
-    left: 43.5vw;
+    top: 36vh;
+    left: 31vw;
     text-shadow: #000000 -0.2vw -0.2vh 0;
     color: green;
     font-family: 'Impact';
-    font-size: 2vw;
+    font-size: 5vw;
 }
 
 .sortable-handler {
