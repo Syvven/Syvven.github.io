@@ -30,6 +30,7 @@ The game is very simple:
 - More robust menu / less obstructive text
 - Tutorial
 - More enemies / special enemies
+- More sounds
 
 ## Credits
 
