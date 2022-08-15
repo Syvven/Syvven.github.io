@@ -322,20 +322,6 @@ window.addEventListener('load', e => {
         ravenInterval = baseRavenInterval * 1/gameSpeed;
     });
 
-    // prevent scrolling from outside of input field
-    window.addEventListener('touchstart', function(e) {
-        if (e.target.nodeName !== 'INPUT') {
-            e.preventDefault();
-        }
-    });
-
-    // prevent scrolling from within input field
-    window.addEventListener('touchmove', function(e) {
-        if (e.target.nodeName == 'INPUT') {
-            e.preventDefault();
-        }
-    });
-
     function animate(timestamp) {
         ctx.clearRect(0,0,canvas.width,canvas.height);
         c_ctx.clearRect(0,0,canvas.width,canvas.height);
