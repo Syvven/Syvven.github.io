@@ -3,7 +3,7 @@ body {
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #container {
@@ -60,10 +60,6 @@ canvas {
     display: inline-block;
     cursor: pointer;
     background-color: #454B1B;
-}
-
-#btn:hover {
-    
 }
 
 .sortable-handler {
