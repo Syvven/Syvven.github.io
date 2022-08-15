@@ -47,19 +47,24 @@ canvas {
 #button {
     position: absolute;
     top: 1vw;
-    left: 96vw;
+    left: 93vw;
     width: 3vw;
-    height: 3vw;
+    height: 1.5vw;
 }
 
 #btn {
+    background-color: transparent;
+    position: relative;
+    text-shadow: #000000 -0.2vw -0.2vh 0;
+    color: green;
+    font-family: 'Impact';
+    font-size: 2vw;
     border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    background-color: #454B1B;
+    
 }
 
 .sortable-handler {
