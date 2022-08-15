@@ -380,8 +380,8 @@ window.addEventListener('load', e => {
             });
         }
 
-        drawScore();
-        drawSpeed();
+        t_score.textContent = "Score: " + score;
+        t_speed.textContent = "Speed: " + gameSpeed;
 
         splats.forEach(obj => obj.mobile_update(dt));
         [/*...particles,*/...ravens, /*, ...explosions*/].forEach(obj => obj.update(dt));
