@@ -47,7 +47,7 @@ window.addEventListener('load', e => {
     let widthRatio = canvas.width/2560;
     let heightRatio = canvas.height/1440;
 
-    const num_images = 23;
+    const num_images = 22;
     let sounds = [];
     for (let i = 1; i <= num_images; i++) {
         let sound = 'sounds/' + i + '.mp3';
